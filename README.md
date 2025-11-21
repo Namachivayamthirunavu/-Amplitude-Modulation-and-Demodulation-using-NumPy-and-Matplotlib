@@ -18,29 +18,29 @@ the message signal. The general form of an AM signal is:
 6. Plot the Signals: Use Matplotlib to plot the message signal, carrier signal, and modulated signal.
 ### Program :
 ```
-import numpy as np 
-import matplotlib.pyplot as plt 
-Am = 14.1
-Fm = 530
-Ac = 28.2 
-Fc = 5300 
-Fs = 295000 
-t = np.arange(0, 2/Fm, 1/Fs) 
-em = Am * np.sin(2 * np.pi * Fm * t) 
-plt.subplot(3, 1, 1) 
-plt.plot(t, em) 
-plt.grid() 
-ec = Ac * np.sin(2 * np.pi * Fc * t) 
-plt.subplot(3, 1, 2) 
-plt.plot(t, ec) 
-plt.grid() 
-eam = (Ac + (Am * np.sin(2 * np.pi * Fm * t))) * np.sin(2 * np.pi * Fc * t) 
-plt.subplot(3, 1, 3) 
-plt.plot(t, eam) 
-plt.grid() 
-plt.tight_layout() 
+import numpy as np
+import matplotlib.pyplot as plt
+Am = 6
+fm = 474
+Ac = 12
+fc = 4740
+fs = 47400
+t = np.arange(0, 3/fm, 1/fs)
+m = Am * np.cos(2 * np.pi * fm * t)
+c = Ac * np.cos(2 * np.pi * fc * t)
+s = (Ac + m) * np.cos(2 * np.pi * fc * t)
+plt.subplot(3, 1, 1)
+plt.plot(t, m)
+plt.subplot(3, 1, 2)
+plt.plot(t, c)
+plt.subplot(3, 1, 3)
+plt.plot(t, s)
+plt.tight_layout()
 plt.show()
 ```
+### Tabulation :
+<img width="801" height="644" alt="image" src="https://github.com/user-attachments/assets/8689ac0c-1d64-48de-85ab-1d3eb91b9e31" />
+
 ### Output:
 <img width="630" height="469" alt="image" src="https://github.com/user-attachments/assets/5a5d7b46-8c19-4e28-8de1-f1856e414ff6" />
 
